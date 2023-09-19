@@ -58,40 +58,36 @@ public class homepage  {
         Map<String, String> testData = excelReadFile.readTestData("/home/coder/project/workspace/Project/testdata/Testdata.xlsx", "Sheet1");
         String username = testData.get("userame");
         String password = testData.get("password");
-        ExtentTest test = reporter.createTest("Deposit_Amount Test", "Execution for Deposit_Amount Function");
+        ExtentTest test = Reporter.generateExtentReport().createTest("Login Test", "Execution for Login Function");
     
-        try {
-            test.log(Status.PASS, " Browser opened");
-            driver.findElement(Locators1.username).sendKeys(username);
-            test.log(Status.PASS, "Enter Username");
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            String base64Screenshot = Reporter.captureScreenshotAsBase64(driver, "UsernameEntryError");
-            test.fail("Failed to Enter Username", MediaEntityBuilder.createScreenCaptureFromBase64String(base64Screenshot).build());
-        }
+    //     try {
+    //         test.log(Status.PASS, " Browser opened");
+    //         driver.findElement(Locators1.username).sendKeys(username);
+    //         test.log(Status.PASS, "Enter Username");
     
-            try {
-                driver.findElement(Locators1.password).sendKeys(password); 
-                test.log(Status.PASS, "Enter Password");
-            } catch (Exception ex) {
-                ex.printStackTrace();
-                test.log(Status.FAIL, "Enter Password");
-            }
+    //         try {
+    //             driver.findElement(Locators1.password).sendKeys(password); 
+    //             test.log(Status.PASS, "Enter Password");
+    //         } catch (Exception ex) {
+    //             ex.printStackTrace();
+    //             test.log(Status.FAIL, "Enter Password");
+    //         }
     
-            try {
-                driver.findElement(Locators1.submit).click();
-                test.log(Status.PASS, "Click on submit");
-            } catch (Exception ex) {
-                ex.printStackTrace();
-                test.log(Status.FAIL, "Click on submit");
-            }
+    //         try {
+    //             driver.findElement(Locators1.submit).click();
+    //             test.log(Status.PASS, "Click on submit");
+    //         } catch (Exception ex) {
+    //             ex.printStackTrace();
+    //             test.log(Status.FAIL, "Click on submit");
+    //         }
     
-            test.log(Status.PASS, " Browser closed");
+    //         test.log(Status.PASS, " Browser closed");
     
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
+    //     } catch (Exception ex) {
+    //         ex.printStackTrace();
+    //     }
+    // }
+    
     
 } 
 
