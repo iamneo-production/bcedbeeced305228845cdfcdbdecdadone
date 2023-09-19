@@ -77,8 +77,6 @@
 //         return extentReport;
 //     }
 // }
-
-
 package utils;
 
 import java.io.ByteArrayOutputStream;
@@ -163,7 +161,7 @@ public class Reporter {
         return extentReport;
     }
 
-    public String captureScreenshotAsBase64(WebDriver driver, String screenshotName) {
+    public static String captureScreenshotAsBase64(WebDriver driver, String screenshotName) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
         TimeZone istTimeZone = TimeZone.getTimeZone("Asia/Kolkata"); // IST timezone
         dateFormat.setTimeZone(istTimeZone);
@@ -187,7 +185,7 @@ public class Reporter {
         return base64Screenshot;
     }
 
-    private void saveScreenshotToFile(byte[] screenshotBytes, String fileName) {
+    private static void saveScreenshotToFile(byte[] screenshotBytes, String fileName) {
         try {
             String screenshotsDirPath = System.getProperty("user.dir") + "/screenshots/";
             File screenshotsDir = new File(screenshotsDirPath);

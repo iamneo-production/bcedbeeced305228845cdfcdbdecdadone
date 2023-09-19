@@ -48,8 +48,9 @@ public class homepage  {
 
     java.util.logging.Logger log = LoggerHandler.getLogger();
     // base64 screenshotHandler = new base64();
-    ExtentReports reporter = Reporter.generateExtentReport();
+    // ExtentReports reporter = Reporter.generateExtentReport();
     excelReadFile file = new excelReadFile();
+    Reporter reporter = new Reporter();
 
     
     
@@ -59,17 +60,15 @@ public class homepage  {
         String password = testData.get("password");
         ExtentTest test = reporter.createTest("Deposit_Amount Test", "Execution for Deposit_Amount Function");
     
-        try {   
+        try {
             test.log(Status.PASS, " Browser opened");
-            try {
-                driver.findElement(Locators1.username).sendKeys(username);
-                test.log(Status.PASS, "Enter Username");
-            } catch (Exception ex) {
-                ex.printStackTrace();
-                String base64Screenshot = Reporter.captureScreenshotAsBase64(driver, "UsernameEntryError");
-                test.fail("Failed to Enter Username", MediaEntityBuilder.createScreenCaptureFromBase64String(base64Screenshot).build());
-        
-            }
+            driver.findElement(Locators1.username).sendKeys(username);
+            test.log(Status.PASS, "Enter Username");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            String base64Screenshot = Reporter.captureScreenshotAsBase64(driver, "UsernameEntryError");
+            test.fail("Failed to Enter Username", MediaEntityBuilder.createScreenCaptureFromBase64String(base64Screenshot).build());
+        }
     
             try {
                 driver.findElement(Locators1.password).sendKeys(password); 
