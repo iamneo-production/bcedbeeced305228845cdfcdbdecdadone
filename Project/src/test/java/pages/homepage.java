@@ -66,9 +66,10 @@ public class homepage  {
     
             } catch (Exception ex) {
                 ex.printStackTrace();
-                String base64Screenshot = screenshotHandler.captureScreenshotAsBase64(driver, "hover_products");
-                test.fail("Unable to hover products", MediaEntityBuilder.createScreenCaptureFromBase64String(base64Screenshot).build());
-    
+                // String base64Screenshot = screenshotHandler.captureScreenshotAsBase64(driver, "hover_products");
+                // test.fail("Unable to hover products", MediaEntityBuilder.createScreenCaptureFromBase64String(base64Screenshot).build());
+                String base64Screenshot = Screenshot.captureScreenshotAsBase64(driver, "screenshotName");
+                test.fail( "Unable to hover products", test.addScreenCaptureFromBase64String(base64Screenshot));
             }
     
             try {
