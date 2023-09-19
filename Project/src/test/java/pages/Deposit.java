@@ -45,7 +45,6 @@ public class Deposit  {
     private Map<String, String> testData; 
 
     java.util.logging.Logger log = LoggerHandler.getLogger();
-    // base64 screenshotHandler = new base64();
     ExtentReports reporter = Reporter.generateExtentReport();
     excelReadFile file = new excelReadFile();
 
