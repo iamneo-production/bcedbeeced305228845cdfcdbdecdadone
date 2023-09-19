@@ -52,30 +52,27 @@ public class homepage  {
     excelReadFile file = new excelReadFile();
 
     
+    
     public void Valid_Login_TC(WebDriver driver) throws IOException {
         Map<String, String> testData = excelReadFile.readTestData("/home/coder/project/workspace/Project/testdata/Testdata.xlsx", "Sheet1");
         String username = testData.get("userame");
         String password = testData.get("password");
         ExtentTest test = reporter.createTest("Deposit_Amount Test", "Execution for Deposit_Amount Function");
-
+    
         try {   
-                 test.log(Status.PASS, " Browser opened");
+            test.log(Status.PASS, " Browser opened");
             try {
                 driver.findElement(Locators1.username).sendKeys(username);
                 test.log(Status.PASS, "Enter Username");
-    
             } catch (Exception ex) {
                 ex.printStackTrace();
-                // String base64Screenshot = screenshotHandler.captureScreenshotAsBase64(driver, "hover_products");
-                // test.fail("Unable to hover products", MediaEntityBuilder.createScreenCaptureFromBase64String(base64Screenshot).build());
-                String base64Screenshot = Screenshot.captureScreenshotAsBase64(driver, "screenshotName");
-                test.fail( "Unable to hover products", test.addScreenCaptureFromBase64String(base64Screenshot));
+                String base64Screenshot = screenshotHandler.captureScreenshotAsBase64(driver, "UsernameEntryError");
+                test.fail("Failed to Enter Username", MediaEntityBuilder.createScreenCaptureFromBase64String(base64Screenshot).build());
             }
     
             try {
                 driver.findElement(Locators1.password).sendKeys(password); 
                 test.log(Status.PASS, "Enter Password");
-    
             } catch (Exception ex) {
                 ex.printStackTrace();
                 test.log(Status.FAIL, "Enter Password");
@@ -88,14 +85,15 @@ public class homepage  {
                 ex.printStackTrace();
                 test.log(Status.FAIL, "Click on submit");
             }
-             test.log(Status.PASS, " Browser closed");
-
+    
+            test.log(Status.PASS, " Browser closed");
+    
         } catch (Exception ex) {
-            
             ex.printStackTrace();
         }
     }
-      
-}
+    
+} 
+
 
 
