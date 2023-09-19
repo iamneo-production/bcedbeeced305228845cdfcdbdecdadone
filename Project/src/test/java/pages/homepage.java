@@ -52,11 +52,11 @@ public class homepage  {
     excelReadFile file = new excelReadFile();
 
     
-    public void Valid_Login_TC(WebDriver driver, ExtentTest test) throws IOException {
+    public void Valid_Login_TC(WebDriver driver) throws IOException {
         Map<String, String> testData = excelReadFile.readTestData("/home/coder/project/workspace/Project/testdata/Testdata.xlsx", "Sheet1");
         String username = testData.get("userame");
         String password = testData.get("password");
-       
+        ExtentTest test = reporter.createTest("Deposit_Amount Test", "Execution for Deposit_Amount Function");
 
         try {   
                  test.log(Status.PASS, " Browser opened");

@@ -30,9 +30,8 @@ public class Testcase1 extends Base {
     
     @Test(priority = 1)
     public void TC_001() throws IOException {  
-        ExtentTest test = extent.createTest("Your Test Case");
             driver.get(prop.getProperty("url"));
-            Homepage.Valid_Login_TC(driver,test);      
+            Homepage.Valid_Login_TC(driver);      
     }    
 
 @BeforeMethod
