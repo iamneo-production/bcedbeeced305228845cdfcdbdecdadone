@@ -35,7 +35,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.WebDriver;
-import utils.base64;
+// import utils.base64;
 import utils.Screenshot;
 import uistore.Locators2;
 import utils.excelReadFile;
@@ -45,7 +45,7 @@ public class Deposit  {
     private Map<String, String> testData; 
 
     java.util.logging.Logger log = LoggerHandler.getLogger();
-    base64 screenshotHandler = new base64();
+    // base64 screenshotHandler = new base64();
     ExtentReports reporter = Reporter.generateExtentReport();
     excelReadFile file = new excelReadFile();
 

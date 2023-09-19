@@ -37,7 +37,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.WebDriver;
-import utils.base64;
+// import utils.base64;
 import utils.Screenshot;
 import uistore.Locators1;
 import utils.excelReadFile;
@@ -47,7 +47,7 @@ public class homepage  {
     private Map<String, String> testData; 
 
     java.util.logging.Logger log = LoggerHandler.getLogger();
-    base64 screenshotHandler = new base64();
+    // base64 screenshotHandler = new base64();
     ExtentReports reporter = Reporter.generateExtentReport();
     excelReadFile file = new excelReadFile();
 
@@ -66,8 +66,9 @@ public class homepage  {
                 test.log(Status.PASS, "Enter Username");
             } catch (Exception ex) {
                 ex.printStackTrace();
-                String base64Screenshot = screenshotHandler.captureScreenshotAsBase64(driver, "UsernameEntryError");
+                String base64Screenshot = Reporter.captureScreenshotAsBase64(driver, "UsernameEntryError");
                 test.fail("Failed to Enter Username", MediaEntityBuilder.createScreenCaptureFromBase64String(base64Screenshot).build());
+        
             }
     
             try {

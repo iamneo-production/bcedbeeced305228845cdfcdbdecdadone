@@ -13,7 +13,7 @@ import com.aventstack.extentreports.Status;
 import pages.Deposit;
 import pages.Withdraw;
 import pages.homepage;
-import utils.base64;
+// import utils.base64;
 import utils.Screenshot;
 import utils.Base;
 import utils.EventHandler;
@@ -22,7 +22,7 @@ import utils.Reporter;
 public class Testcase1 extends Base {
 
     java.util.logging.Logger log =  LoggerHandler.getLogger();
-    base64 screenshotHandler = new base64();
+    // base64 screenshotHandler = new base64();
     ExtentReports extent = new ExtentReports();
     homepage Homepage = new homepage();
     Deposit deposit = new Deposit();
