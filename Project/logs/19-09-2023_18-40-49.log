@@ -1,0 +1,18 @@
+Sep 19, 2023 6:40:52 PM utils.Base openBrowser
+INFO: Browser Launched
+Sep 19, 2023 6:40:53 PM utils.Base openBrowser
+INFO: Browser Loaded the URL
+Sep 19, 2023 6:40:56 PM pages.homepage Valid_Login_TC
+INFO: check
+Sep 19, 2023 6:40:56 PM pages.homepage Valid_Login_TC
+INFO: This is an INFO message
+Sep 19, 2023 6:40:56 PM pages.homepage Valid_Login_TC
+WARNING: This is a WARNING message
+Sep 19, 2023 6:40:56 PM pages.homepage Valid_Login_TC
+SEVERE: This is a SEVERE message
+Sep 19, 2023 6:40:56 PM pages.homepage Valid_Login_TC
+FINEST: This is a DEBUG message
+Sep 19, 2023 6:40:56 PM pages.homepage Valid_Login_TC
+SEVERE: This is an ERROR message
+Sep 19, 2023 6:40:58 PM runner.Testcase1 afterMethod
+INFO: Browser closed

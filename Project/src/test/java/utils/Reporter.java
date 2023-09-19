@@ -33,7 +33,7 @@ public class Reporter {
         ExtentReports extentReport = new ExtentReports();
         
         // Load properties from browser.properties file
-        String filepath = System.getProperty("user.dir") + "/src/test/java/resources/browser.properties";
+        String filepath = System.getProperty("user.dir") + "/config/browser.properties";
         try {
             FileInputStream file = new FileInputStream(filepath);
             prop = new Properties();

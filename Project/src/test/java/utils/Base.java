@@ -30,7 +30,7 @@ public class Base
 	public java.util.logging.Logger log =LoggerHandler.log;
 	public Base() 
 	{
-		String filepath=System.getProperty("user.dir")+"/src/test/java/resources/browser.properties";
+		String filepath=System.getProperty("user.dir")+"/config/browser.properties";
 		try
 		{
 			FileInputStream file=new FileInputStream(filepath);
@@ -50,7 +50,7 @@ public class Base
 		{
 		DesiredCapabilities dc=new DesiredCapabilities();
 			dc.setBrowserName("chrome");
-			driver = new RemoteWebDriver(new URL("http://34.85.201.58:4445/"), dc);
+			driver = new RemoteWebDriver(new URL("http://34.85.201.58:4465/"), dc);
 			   
 		}
 		else if(browsername.equalsIgnoreCase("firefox")){

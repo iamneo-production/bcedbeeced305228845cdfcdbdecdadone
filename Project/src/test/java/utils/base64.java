@@ -12,7 +12,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
 public class base64 {
-    public String captureScreenshotAsBase64(WebDriver driver) {
+    public String captureScreenshotAsBase64(WebDriver driver, String string) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
         TimeZone istTimeZone = TimeZone.getTimeZone("Asia/Kolkata"); // IST timezone
         dateFormat.setTimeZone(istTimeZone);

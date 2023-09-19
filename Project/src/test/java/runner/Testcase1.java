@@ -10,6 +10,8 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 
+import pages.Deposit;
+import pages.Withdraw;
 import pages.homepage;
 import utils.base64;
 import utils.Screenshot;
@@ -21,24 +23,30 @@ public class Testcase1 extends Base {
 
     java.util.logging.Logger log =  LoggerHandler.getLogger();
     base64 screenshotHandler = new base64();
-    ExtentReports reporter = Reporter.generateExtentReport();;
+    ExtentReports extent = new ExtentReports();
     homepage Homepage = new homepage();
+    Deposit deposit = new Deposit();
+    Withdraw withdraw = new Withdraw(); 
     
     @Test(priority = 1)
-    public void TC_001() throws IOException {
-        driver.get(prop.getProperty("url"));
-    }
+    public void TC_001() throws IOException {  
+        ExtentTest test = extent.createTest("Your Test Case");
+            driver.get(prop.getProperty("url"));
+            Homepage.Valid_Login_TC(driver,test);      
+    }    
 
 @BeforeMethod
 public void beforeMethod() throws MalformedURLException {
     openBrowser();
+    extent = Reporter.generateExtentReport();
+
 
 }
 
     @AfterMethod
     public void afterMethod() {
         driver.quit();
-        reporter.flush();
+        extent.flush();
         log.info("Browser closed");
         LoggerHandler.closeHandler();
     }

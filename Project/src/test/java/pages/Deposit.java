@@ -30,8 +30,6 @@ import org.apache.poi.ss.usermodel.*;
 import java.time.Duration;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -39,10 +37,10 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.WebDriver;
 import utils.base64;
 import utils.Screenshot;
-import uistore.Locators1;
+import uistore.Locators2;
 import utils.excelReadFile;
 import utils.Reporter;
-public class homepage  {
+public class Deposit  {
 
     private Map<String, String> testData; 
 
@@ -51,50 +49,22 @@ public class homepage  {
     ExtentReports reporter = Reporter.generateExtentReport();
     excelReadFile file = new excelReadFile();
 
-    
-    public void Valid_Login_TC(WebDriver driver, ExtentTest test) throws IOException {
-        Map<String, String> testData = excelReadFile.readTestData("/home/coder/project/workspace/Project/testdata/Testdata.xlsx", "Sheet1");
-        String username = testData.get("userame");
-        String password = testData.get("password");
-       
-
-        try {   
-                 test.log(Status.PASS, " Browser opened");
-            try {
-                driver.findElement(Locators1.username).sendKeys(username);
-                test.log(Status.PASS, "Enter Username");
-    
-            } catch (Exception ex) {
-                ex.printStackTrace();
-                String base64Screenshot = screenshotHandler.captureScreenshotAsBase64(driver, "hover_products");
-                test.fail("Unable to hover products", MediaEntityBuilder.createScreenCaptureFromBase64String(base64Screenshot).build());
-    
-            }
-    
-            try {
-                driver.findElement(Locators1.password).sendKeys(password); 
-                test.log(Status.PASS, "Enter Password");
-    
-            } catch (Exception ex) {
-                ex.printStackTrace();
-                test.log(Status.FAIL, "Enter Password");
-            }
-    
-            try {
-                driver.findElement(Locators1.submit).click();
-                test.log(Status.PASS, "Click on submit");
-            } catch (Exception ex) {
-                ex.printStackTrace();
-                test.log(Status.FAIL, "Click on submit");
-            }
-             test.log(Status.PASS, " Browser closed");
-
-        } catch (Exception ex) {
+public void Deposit_Amount(WebDriver driver)throws IOException {
             
-            ex.printStackTrace();
-        }
+            Map<String, String> testData = excelReadFile.readTestData("/home/coder/project/workspace/Project/testdata/Testdata.xlsx", "Sheet1");
+            String depositAmount = testData.get("depositAmount");
+
+            Duration timeout = Duration.ofSeconds(10);
+            WebDriverWait wait = new WebDriverWait(driver,timeout);
+            WebElement depositLink = wait.until(ExpectedConditions.elementToBeClickable(Locators2.depositLink));
+            depositLink.click();
+            Select accType=new Select(driver.findElement(Locators2.accType));
+            log.info("Account Type has been selected");
+            accType.selectByVisibleText("Individual Checking (Standard Checking)");
+            driver.findElement(Locators2.amount).sendKeys(depositAmount);
+            log.info("Amount has been sent");
+            driver.findElement(By.xpath(Locators2.submitAcc)).click();
+
+        
     }
-      
 }
-
-
